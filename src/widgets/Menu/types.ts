@@ -48,8 +48,8 @@ export interface PanelProps {
   langs: LangType[];
   setLang: (lang: LangType) => void;
   links: Array<MenuEntry>;
-  fsxuPriceLink: string;
-  whirlPriceLink: string;
+  fsxuPriceLink?: string;
+  whirlPriceLink?: string;
 }
 
 export interface NavProps extends PanelProps {
