@@ -68,7 +68,7 @@ const PanelFooter: React.FC<Props> = ({
   setLang,
   // priceLink,
   fsxuPriceLink,
-  whirlPriceLink
+  whirlPriceLink,
 }) => {
   if (!isPushed) {
     return (
@@ -92,22 +92,22 @@ const PanelFooter: React.FC<Props> = ({
           <Skeleton width={80} height={24} />
         )} */}
         <div>
-        {fsxuPriceUsd ? (
-          <PriceLink href={fsxuPriceLink} target="_blank">
-            <FsxuRoundIcon width="24px" mr="8px" />
-            <Text color="textSubtle" bold>{`$${fsxuPriceUsd.toFixed(3)}`}</Text>
-          </PriceLink>
-        ) : (
-          <Skeleton width={80} height={24} />
-        )}
-        {whirlPriceUsd ? (
-          <PriceLink href={whirlPriceLink} target="_blank">
-            <WhirlRoundIcon width="24px" mr="8px" />
-            <Text color="textSubtle" bold>{`$${whirlPriceUsd.toFixed(3)}`}</Text>
-          </PriceLink>
-        ) : (
-          <Skeleton width={80} height={24} />
-        )}
+          {fsxuPriceUsd ? (
+            <PriceLink href={fsxuPriceLink} target="_blank">
+              <FsxuRoundIcon width="24px" mr="8px" />
+              <Text color="textSubtle" bold>{`$${fsxuPriceUsd.toFixed(3)}`}</Text>
+            </PriceLink>
+          ) : (
+            <Skeleton width={80} height={24} />
+          )}
+          {whirlPriceUsd ? (
+            <PriceLink href={whirlPriceLink} target="_blank">
+              <WhirlRoundIcon width="24px" mr="8px" />
+              <Text color="textSubtle" bold>{`$${whirlPriceUsd.toFixed(3)}`}</Text>
+            </PriceLink>
+          ) : (
+            <Skeleton width={80} height={24} />
+          )}
         </div>
         <Flex>
           {socials.map((social, index) => {
