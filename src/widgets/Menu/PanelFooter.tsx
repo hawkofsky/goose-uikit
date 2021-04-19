@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { PancakeRoundIcon, CogIcon, SvgProps } from "../../components/Svg";
+import { PancakeRoundIcon, FsxuRoundIcon, WhirlRoundIcon, CogIcon, SvgProps } from "../../components/Svg";
 import Text from "../../components/Text/Text";
 import Flex from "../../components/Flex/Flex";
 import Dropdown from "../../components/Dropdown/Dropdown";
@@ -28,6 +28,7 @@ const Container = styled.div`
 const PriceLink = styled.a`
   display: flex;
   align-items: center;
+  margin-bottom: 5px;
   svg {
     transition: transform 0.3s;
   }
@@ -59,11 +60,15 @@ const PanelFooter: React.FC<Props> = ({
   pushNav,
   toggleTheme,
   isDark,
-  cakePriceUsd,
+  // cakePriceUsd,
+  fsxuPriceUsd,
+  whirlPriceUsd,
   currentLang,
   langs,
   setLang,
-  priceLink,
+  // priceLink,
+  fsxuPriceLink,
+  whirlPriceLink
 }) => {
   if (!isPushed) {
     return (
@@ -78,14 +83,32 @@ const PanelFooter: React.FC<Props> = ({
   return (
     <Container>
       <SocialEntry>
-        {cakePriceUsd ? (
+        {/* {cakePriceUsd ? (
           <PriceLink href={priceLink} target="_blank">
             <PancakeRoundIcon width="24px" mr="8px" />
             <Text color="textSubtle" bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
           </PriceLink>
         ) : (
           <Skeleton width={80} height={24} />
+        )} */}
+        <div>
+        {fsxuPriceUsd ? (
+          <PriceLink href={fsxuPriceLink} target="_blank">
+            <FsxuRoundIcon width="24px" mr="8px" />
+            <Text color="textSubtle" bold>{`$${fsxuPriceUsd.toFixed(3)}`}</Text>
+          </PriceLink>
+        ) : (
+          <Skeleton width={80} height={24} />
         )}
+        {whirlPriceUsd ? (
+          <PriceLink href={whirlPriceLink} target="_blank">
+            <WhirlRoundIcon width="24px" mr="8px" />
+            <Text color="textSubtle" bold>{`$${whirlPriceUsd.toFixed(3)}`}</Text>
+          </PriceLink>
+        ) : (
+          <Skeleton width={80} height={24} />
+        )}
+        </div>
         <Flex>
           {socials.map((social, index) => {
             const Icon = Icons[social.icon];

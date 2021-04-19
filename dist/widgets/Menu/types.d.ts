@@ -34,12 +34,14 @@ export interface MenuEntry {
 export interface PanelProps {
     isDark: boolean;
     toggleTheme: (isDark: boolean) => void;
-    cakePriceUsd?: number;
+    fsxuPriceUsd?: number;
+    whirlPriceUsd?: number;
     currentLang: string;
     langs: LangType[];
     setLang: (lang: LangType) => void;
     links: Array<MenuEntry>;
-    priceLink: string;
+    fsxuPriceLink: string;
+    whirlPriceLink: string;
 }
 export interface NavProps extends PanelProps {
     account?: string;
