@@ -95,7 +95,7 @@ const PanelFooter: React.FC<Props> = ({
           {fsxuPriceUsd ? (
             <PriceLink href={fsxuPriceLink} target="_blank">
               <FsxuRoundIcon width="24px" mr="8px" />
-              <Text color="textSubtle" bold>{`$${fsxuPriceUsd.toFixed(3)}`}</Text>
+              <Text color="textSubtle" bold>{`$${fsxuPriceUsd.toFixed(5)}`}</Text>
             </PriceLink>
           ) : (
             <Skeleton width={80} height={24} />
@@ -103,7 +103,7 @@ const PanelFooter: React.FC<Props> = ({
           {whirlPriceUsd ? (
             <PriceLink href={whirlPriceLink} target="_blank">
               <WhirlRoundIcon width="24px" mr="8px" />
-              <Text color="textSubtle" bold>{`$${whirlPriceUsd.toFixed(3)}`}</Text>
+              <Text color="textSubtle" bold>{`$${whirlPriceUsd.toFixed(5)}`}</Text>
             </PriceLink>
           ) : (
             <Skeleton width={80} height={24} />
