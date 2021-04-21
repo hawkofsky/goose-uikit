@@ -2421,10 +2421,10 @@ var PanelFooter = function (_a) {
             React__default['default'].createElement("div", null,
                 fsxuPriceUsd ? (React__default['default'].createElement(PriceLink, { href: fsxuPriceLink, target: "_blank" },
                     React__default['default'].createElement(Icon$w, { width: "24px", mr: "8px" }),
-                    React__default['default'].createElement(Text, { color: "textSubtle", bold: true }, "$" + fsxuPriceUsd.toFixed(3)))) : (React__default['default'].createElement(Skeleton, { width: 80, height: 24 })),
+                    React__default['default'].createElement(Text, { color: "textSubtle", bold: true }, "$" + fsxuPriceUsd.toFixed(5)))) : (React__default['default'].createElement(Skeleton, { width: 80, height: 24 })),
                 whirlPriceUsd ? (React__default['default'].createElement(PriceLink, { href: whirlPriceLink, target: "_blank" },
                     React__default['default'].createElement(Icon$x, { width: "24px", mr: "8px" }),
-                    React__default['default'].createElement(Text, { color: "textSubtle", bold: true }, "$" + whirlPriceUsd.toFixed(3)))) : (React__default['default'].createElement(Skeleton, { width: 80, height: 24 }))),
+                    React__default['default'].createElement(Text, { color: "textSubtle", bold: true }, "$" + whirlPriceUsd.toFixed(5)))) : (React__default['default'].createElement(Skeleton, { width: 80, height: 24 }))),
             React__default['default'].createElement(Flex, null, socials.map(function (social, index) {
                 var Icon = Icons$1[social.icon];
                 var iconProps = { width: "24px", color: "textSubtle", style: { cursor: "pointer" } };
