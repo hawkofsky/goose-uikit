@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Logo from "./Logo";
 import PanelBody from "./PanelBody";
 import PanelFooter from "./PanelFooter";
 import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
@@ -20,11 +21,12 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   justify-content: space-between;
   flex-shrink: 0;
   background-color: ${({ theme }) => theme.nav.background};
+  background-image: url('images/left-bg.jpg');
   width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
   height: 100vh;
   transition: padding-top 0.2s, width 0.2s;
   border-right: ${({ isPushed }) => (isPushed ? "2px solid rgba(133, 133, 133, 0.1)" : 0)};
-  z-index: 11;
+  z-index: 32;
   overflow: ${({ isPushed }) => (isPushed ? "initial" : "hidden")};
   transform: translate3d(0, 0, 0);
 
@@ -35,9 +37,16 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
 `;
 
 const Panel: React.FC<Props> = (props) => {
-  const { isPushed, showMenu } = props;
+  const { isPushed, showMenu, links, isDark, pushNav } = props;
+  const homeLink = links.find((link) => link.label === "Home");
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
+      <Logo
+        isPushed={isPushed}
+        togglePush={() => pushNav}
+        isDark={isDark}
+        href={homeLink?.href ?? "/"}
+      />
       <PanelBody {...props} />
       <PanelFooter {...props} />
     </StyledPanel>

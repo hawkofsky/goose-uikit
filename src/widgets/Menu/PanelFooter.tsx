@@ -21,7 +21,7 @@ const { MoonIcon, SunIcon, LanguageIcon } = Icons;
 const Container = styled.div`
   flex: none;
   padding: 8px 4px;
-  background-color: ${({ theme }) => theme.nav.background};
+  // background-color: ${({ theme }) => theme.nav.background};
   border-top: solid 2px rgba(133, 133, 133, 0.1);
 `;
 
@@ -55,6 +55,13 @@ const SocialEntry = styled.div`
   padding: 0 16px;
 `;
 
+const Divider = styled.div`
+  background-color: #ffffff;
+  height: 3px;
+  margin: 20px auto;
+  width: 90%;
+`
+
 const PanelFooter: React.FC<Props> = ({
   isPushed,
   pushNav,
@@ -82,6 +89,7 @@ const PanelFooter: React.FC<Props> = ({
 
   return (
     <Container>
+      <Divider />
       <SocialEntry>
         {/* {cakePriceUsd ? (
           <PriceLink href={priceLink} target="_blank">
@@ -95,7 +103,7 @@ const PanelFooter: React.FC<Props> = ({
           {fsxuPriceUsd ? (
             <PriceLink href={fsxuPriceLink} target="_blank">
               <FsxuRoundIcon width="24px" mr="8px" />
-              <Text color="textSubtle" bold>{`$${fsxuPriceUsd.toFixed(5)}`}</Text>
+              <Text color="white" bold>{`$${fsxuPriceUsd.toFixed(5)}`}</Text>
             </PriceLink>
           ) : (
             <Skeleton width={80} height={24} />
@@ -103,7 +111,7 @@ const PanelFooter: React.FC<Props> = ({
           {whirlPriceUsd ? (
             <PriceLink href={whirlPriceLink} target="_blank">
               <WhirlRoundIcon width="24px" mr="8px" />
-              <Text color="textSubtle" bold>{`$${whirlPriceUsd.toFixed(5)}`}</Text>
+              <Text color="white" bold>{`$${whirlPriceUsd.toFixed(5)}`}</Text>
             </PriceLink>
           ) : (
             <Skeleton width={80} height={24} />
