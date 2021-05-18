@@ -22,6 +22,7 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
             onPresentAccountModal();
           }}
         >
+          <img height="26px" src="/images/wallet.png" style={{height: "26px"}} /> &nbsp;
           {accountEllipsis}
         </Button>
       ) : (

@@ -2107,12 +2107,14 @@ var StyledLink$1 = styled__default['default'](reactRouterDom.Link)(templateObjec
 });
 var Logo$1 = function (_a) {
     var isPushed = _a.isPushed, togglePush = _a.togglePush, isDark = _a.isDark, href = _a.href;
+    var isXl = useMatchBreakpoints().isXl;
+    var isMobile = isXl === false;
     var isAbsoluteUrl = href.startsWith("http");
     var innerLogo = (React__default['default'].createElement(React__default['default'].Fragment, null,
         React__default['default'].createElement(Icon$q, { className: "mobile-icon" }),
         React__default['default'].createElement(Logo, { className: "desktop-icon", isDark: isDark })));
-    return (React__default['default'].createElement(Flex, null,
-        React__default['default'].createElement(MenuButton, { "aria-label": "Toggle menu", onClick: togglePush, mr: "24px" }, isPushed ? (React__default['default'].createElement(Icon$N, { width: "24px", color: "textSubtle" })) : (React__default['default'].createElement(Icon$M, { width: "24px", color: "textSubtle" }))),
+    return (React__default['default'].createElement(Flex, { style: { paddingLeft: "60px" } },
+        isMobile && (React__default['default'].createElement(MenuButton, { "aria-label": "Toggle menu", onClick: togglePush, mr: "24px" }, isPushed ? (React__default['default'].createElement(Icon$N, { width: "24px", color: "textSubtle" })) : (React__default['default'].createElement(Icon$M, { width: "24px", color: "textSubtle" })))),
         isAbsoluteUrl ? (React__default['default'].createElement(StyledLink$1, { as: "a", href: href, "aria-label": "Pancake home page" }, innerLogo)) : (React__default['default'].createElement(StyledLink$1, { to: href, "aria-label": "Pancake home page" }, innerLogo))));
 };
 var templateObject_1$y;
@@ -2299,7 +2301,7 @@ var SIDEBAR_WIDTH_REDUCED = 56;
 
 var rainbowAnimation = styled.keyframes(templateObject_1$z || (templateObject_1$z = __makeTemplateObject(["\n  0%,\n  100% {\n    background-position: 0 0;\n  }\n  50% {\n    background-position: 100% 0;\n  }\n"], ["\n  0%,\n  100% {\n    background-position: 0 0;\n  }\n  50% {\n    background-position: 100% 0;\n  }\n"])));
 var LinkLabel = styled__default['default'].div(templateObject_2$a || (templateObject_2$a = __makeTemplateObject(["\n  color: #ffffff;\n  transition: color 0.4s;\n  flex-grow: 1;\n"], ["\n  color: #ffffff;\n  transition: color 0.4s;\n  flex-grow: 1;\n"])));
-var MenuEntry = styled__default['default'].div(templateObject_3$6 || (templateObject_3$6 = __makeTemplateObject(["\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  height: ", "px;\n  padding: ", ";\n  font-size: ", ";\n  background-color: ", ";\n  color: ", ";\n  box-shadow: ", ";\n\n  a {\n    display: flex;\n    align-items: center;\n    width: 100%;\n    height: 100%;\n  }\n\n  svg {\n    fill: ", ";\n  }\n\n  &:hover {\n    background-color: ", ";\n  }\n\n  // Safari fix\n  flex-shrink: 0;\n\n  &.rainbow {\n    -webkit-background-clip: text;\n    animation: ", " 3s ease-in-out infinite;\n    background: ", ";\n    background-size: 200% 100%;\n    font-weight: bold;\n  }\n"], ["\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  height: ", "px;\n  padding: ", ";\n  font-size: ", ";\n  background-color: ", ";\n  color: ", ";\n  box-shadow: ", ";\n\n  a {\n    display: flex;\n    align-items: center;\n    width: 100%;\n    height: 100%;\n  }\n\n  svg {\n    fill: ", ";\n  }\n\n  &:hover {\n    background-color: ", ";\n  }\n\n  // Safari fix\n  flex-shrink: 0;\n\n  &.rainbow {\n    -webkit-background-clip: text;\n    animation: ", " 3s ease-in-out infinite;\n    background: ", ";\n    background-size: 200% 100%;\n    font-weight: bold;\n  }\n"])), MENU_ENTRY_HEIGHT, function (_a) {
+var MenuEntry = styled__default['default'].div(templateObject_3$6 || (templateObject_3$6 = __makeTemplateObject(["\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  height: ", "px;\n  padding: ", ";\n  font-size: ", ";\n  background-color: ", ";\n  color: ", ";\n  box-shadow: ", ";\n\n  a {\n    display: flex;\n    align-items: center;\n    width: 100%;\n    height: 100%;\n  }\n\n  svg {\n    fill: #ffffff;\n  }\n\n  &:hover {\n    background-color: ", ";\n  }\n\n  // Safari fix\n  flex-shrink: 0;\n\n  &.rainbow {\n    -webkit-background-clip: text;\n    animation: ", " 3s ease-in-out infinite;\n    background: ", ";\n    background-size: 200% 100%;\n    font-weight: bold;\n  }\n"], ["\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  height: ", "px;\n  padding: ", ";\n  font-size: ", ";\n  background-color: ", ";\n  color: ", ";\n  box-shadow: ", ";\n\n  a {\n    display: flex;\n    align-items: center;\n    width: 100%;\n    height: 100%;\n  }\n\n  svg {\n    fill: #ffffff;\n  }\n\n  &:hover {\n    background-color: ", ";\n  }\n\n  // Safari fix\n  flex-shrink: 0;\n\n  &.rainbow {\n    -webkit-background-clip: text;\n    animation: ", " 3s ease-in-out infinite;\n    background: ", ";\n    background-size: 200% 100%;\n    font-weight: bold;\n  }\n"])), MENU_ENTRY_HEIGHT, function (_a) {
     var secondary = _a.secondary;
     return (secondary ? "0 32px" : "0 16px");
 }, function (_a) {
@@ -2316,10 +2318,7 @@ var MenuEntry = styled__default['default'].div(templateObject_3$6 || (templateOb
     return (isActive ? "inset 4px 0px 0px " + theme.colors.primary : "none");
 }, function (_a) {
     var theme = _a.theme;
-    return theme.colors.textSubtle;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.colors.tertiary;
+    return theme.colors.primary;
 }, rainbowAnimation, function (_a) {
     var theme = _a.theme;
     return theme.colors.gradients.bubblegum;
@@ -2370,7 +2369,7 @@ var MenuLink = function (_a) {
 };
 
 var Icons = IconModule;
-var Container$3 = styled__default['default'].div(templateObject_1$B || (templateObject_1$B = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n"], ["\n  display: flex;\n  flex-direction: column;\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n"])));
+var Container$3 = styled__default['default'].div(templateObject_1$B || (templateObject_1$B = __makeTemplateObject(["\n  padding-top: 100px;\n  padding-left: 120px;\n  display: flex;\n  flex-direction: column;\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n"], ["\n  padding-top: 100px;\n  padding-left: 120px;\n  display: flex;\n  flex-direction: column;\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n"])));
 var PanelBody = function (_a) {
     var isPushed = _a.isPushed, pushNav = _a.pushNav, isMobile = _a.isMobile, links = _a.links;
     var location = reactRouterDom.useLocation();
@@ -2394,19 +2393,19 @@ var PanelBody = function (_a) {
 var templateObject_1$B;
 
 var Icons$1 = IconModule;
-var MoonIcon = Icons$1.MoonIcon, SunIcon = Icons$1.SunIcon, LanguageIcon = Icons$1.LanguageIcon;
-var Container$4 = styled__default['default'].div(templateObject_1$C || (templateObject_1$C = __makeTemplateObject(["\n  flex: none;\n  padding: 8px 4px;\n  // background-color: ", ";\n  border-top: solid 2px rgba(133, 133, 133, 0.1);\n"], ["\n  flex: none;\n  padding: 8px 4px;\n  // background-color: ", ";\n  border-top: solid 2px rgba(133, 133, 133, 0.1);\n"])), function (_a) {
+var MoonIcon = Icons$1.MoonIcon, SunIcon = Icons$1.SunIcon; Icons$1.LanguageIcon;
+var Container$4 = styled__default['default'].div(templateObject_1$C || (templateObject_1$C = __makeTemplateObject(["\n  flex: none;\n  padding: 8px 4px 42px 4px;\n  // background-color: ", ";\n  // border-top: solid 2px rgba(133, 133, 133, 0.1);\n"], ["\n  flex: none;\n  padding: 8px 4px 42px 4px;\n  // background-color: ", ";\n  // border-top: solid 2px rgba(133, 133, 133, 0.1);\n"])), function (_a) {
     var theme = _a.theme;
     return theme.nav.background;
 });
 var PriceLink = styled__default['default'].a(templateObject_2$c || (templateObject_2$c = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  margin-bottom: 5px;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  margin-bottom: 5px;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"])));
-var SettingsEntry = styled__default['default'].div(templateObject_3$7 || (templateObject_3$7 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 8px;\n"], ["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 8px;\n"])), MENU_ENTRY_HEIGHT);
-var SocialEntry = styled__default['default'].div(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 16px;\n"], ["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 16px;\n"])), MENU_ENTRY_HEIGHT);
+var SettingsEntry = styled__default['default'].div(templateObject_3$7 || (templateObject_3$7 = __makeTemplateObject(["\n  display: block;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 8px;\n  float: right;\n"], ["\n  display: block;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 8px;\n  float: right;\n"])), MENU_ENTRY_HEIGHT);
+var SocialEntry = styled__default['default'].div(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n  display: block;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 16px;\n  float: left;\n"], ["\n  display: block;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 16px;\n  float: left;\n"])), MENU_ENTRY_HEIGHT);
 var Divider = styled__default['default'].div(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n  background-color: #ffffff;\n  height: 3px;\n  margin: 20px auto;\n  width: 90%;\n"], ["\n  background-color: #ffffff;\n  height: 3px;\n  margin: 20px auto;\n  width: 90%;\n"])));
 var PanelFooter = function (_a) {
     var isPushed = _a.isPushed, pushNav = _a.pushNav, toggleTheme = _a.toggleTheme, isDark = _a.isDark, 
     // cakePriceUsd,
-    fsxuPriceUsd = _a.fsxuPriceUsd, whirlPriceUsd = _a.whirlPriceUsd, currentLang = _a.currentLang, langs = _a.langs, setLang = _a.setLang, 
+    fsxuPriceUsd = _a.fsxuPriceUsd, whirlPriceUsd = _a.whirlPriceUsd, currentLang = _a.currentLang; _a.langs; var setLang = _a.setLang, 
     // priceLink,
     fsxuPriceLink = _a.fsxuPriceLink, whirlPriceLink = _a.whirlPriceLink;
     if (!isPushed) {
@@ -2415,35 +2414,36 @@ var PanelFooter = function (_a) {
                 React__default['default'].createElement(Icon$l, null))));
     }
     return (React__default['default'].createElement(Container$4, null,
+        React__default['default'].createElement(Flex, { style: { justifyContent: "flex-end", width: "90%" } }, socials.map(function (social, index) {
+            var Icon = Icons$1[social.icon];
+            var iconProps = { width: "24px", color: "white", style: { cursor: "pointer" } };
+            var mr = index < socials.length - 1 ? "8px" : 0;
+            if (social.items) {
+                return (React__default['default'].createElement(Dropdown, { key: social.label, position: "top", target: React__default['default'].createElement(Icon, __assign({}, iconProps, { mr: mr })) }, social.items.map(function (item) { return (React__default['default'].createElement(Link, { external: true, key: item.label, href: item.href, "aria-label": item.label, color: "textSubtle" }, item.label)); })));
+            }
+            return (React__default['default'].createElement(Link, { external: true, key: social.label, href: social.href, "aria-label": social.label, mr: mr },
+                React__default['default'].createElement(Icon, __assign({}, iconProps))));
+        })),
         React__default['default'].createElement(Divider, null),
         React__default['default'].createElement(SocialEntry, null,
             React__default['default'].createElement("div", null,
                 fsxuPriceUsd ? (React__default['default'].createElement(PriceLink, { href: fsxuPriceLink, target: "_blank" },
                     React__default['default'].createElement(Icon$w, { width: "24px", mr: "8px" }),
-                    React__default['default'].createElement(Text, { color: "white", bold: true }, "$" + fsxuPriceUsd.toFixed(5)))) : (React__default['default'].createElement(Skeleton, { width: 80, height: 24 })),
+                    React__default['default'].createElement(Text, { color: "white", bold: true, style: { fontSize: '20px' } }, "$" + fsxuPriceUsd.toFixed(5)))) : (React__default['default'].createElement(Skeleton, { width: 80, height: 24 })),
                 whirlPriceUsd ? (React__default['default'].createElement(PriceLink, { href: whirlPriceLink, target: "_blank" },
                     React__default['default'].createElement(Icon$x, { width: "24px", mr: "8px" }),
-                    React__default['default'].createElement(Text, { color: "white", bold: true }, "$" + whirlPriceUsd.toFixed(5)))) : (React__default['default'].createElement(Skeleton, { width: 80, height: 24 }))),
-            React__default['default'].createElement(Flex, null, socials.map(function (social, index) {
-                var Icon = Icons$1[social.icon];
-                var iconProps = { width: "24px", color: "textSubtle", style: { cursor: "pointer" } };
-                var mr = index < socials.length - 1 ? "8px" : 0;
-                if (social.items) {
-                    return (React__default['default'].createElement(Dropdown, { key: social.label, position: "top", target: React__default['default'].createElement(Icon, __assign({}, iconProps, { mr: mr })) }, social.items.map(function (item) { return (React__default['default'].createElement(Link, { external: true, key: item.label, href: item.href, "aria-label": item.label, color: "textSubtle" }, item.label)); })));
-                }
-                return (React__default['default'].createElement(Link, { external: true, key: social.label, href: social.href, "aria-label": social.label, mr: mr },
-                    React__default['default'].createElement(Icon, __assign({}, iconProps))));
-            }))),
+                    React__default['default'].createElement(Text, { color: "white", bold: true, style: { fontSize: '20px' } }, "$" + whirlPriceUsd.toFixed(5)))) : (React__default['default'].createElement(Skeleton, { width: 80, height: 24 })))),
         React__default['default'].createElement(SettingsEntry, null,
-            React__default['default'].createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
+            React__default['default'].createElement(Button, { variant: "text", size: "sm", onClick: function () { return toggleTheme(!isDark); }, style: { display: "list-item", border: "2px solid #ffffff", marginBottom: "3px" } },
                 React__default['default'].createElement(Flex, { alignItems: "center" },
-                    React__default['default'].createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
+                    React__default['default'].createElement(SunIcon, { color: isDark ? "gray" : "white", width: "24px" }),
                     React__default['default'].createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
-                    React__default['default'].createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }))),
-            React__default['default'].createElement(Dropdown, { position: "top-right", target: React__default['default'].createElement(Button, { variant: "text", startIcon: React__default['default'].createElement(LanguageIcon, { color: "textSubtle", width: "24px" }) },
-                    React__default['default'].createElement(Text, { color: "textSubtle" }, currentLang === null || currentLang === void 0 ? void 0 : currentLang.toUpperCase())) }, langs.map(function (lang) { return (React__default['default'].createElement(MenuButton, { key: lang.code, fullWidth: true, onClick: function () { return setLang(lang); }, 
-                // Safari fix
-                style: { minHeight: "32px", height: "auto" } }, lang.language)); })))));
+                    React__default['default'].createElement(MoonIcon, { color: isDark ? "white" : "gray", width: "24px" }))),
+            React__default['default'].createElement(Button, { variant: "text", size: "sm", onClick: function () { return setLang((currentLang === null || currentLang === void 0 ? void 0 : currentLang.toUpperCase()) === 'EN' ? { code: 'zh-CN', language: '简体中文' } : { code: 'en', language: 'English' }); }, style: { display: "list-item", border: "2px solid #ffffff" } },
+                React__default['default'].createElement(Flex, { alignItems: "center" },
+                    React__default['default'].createElement(Text, { color: (currentLang === null || currentLang === void 0 ? void 0 : currentLang.toUpperCase()) === 'EN' ? "gray" : "white", onClick: function () { return setLang({ code: 'en', language: 'English' }); } }, "\u6587"),
+                    React__default['default'].createElement(Text, { color: "textDisabled", mx: "4px" }, "\u00A0/\u00A0"),
+                    React__default['default'].createElement(Text, { color: (currentLang === null || currentLang === void 0 ? void 0 : currentLang.toUpperCase()) === 'EN' ? "white" : "gray", onClick: function () { return setLang({ code: 'zh-CN', language: '简体中文' }); } }, "EN"))))));
 };
 var templateObject_1$C, templateObject_2$c, templateObject_3$7, templateObject_4$2, templateObject_5$1;
 
@@ -2675,7 +2675,10 @@ var UserBlock = function (_a) {
     var accountEllipsis = account ? account.substring(0, 4) + "..." + account.substring(account.length - 4) : null;
     return (React__default['default'].createElement("div", null, account ? (React__default['default'].createElement(Button, { size: "sm", variant: "tertiary", onClick: function () {
             onPresentAccountModal();
-        } }, accountEllipsis)) : (React__default['default'].createElement(Button, { size: "sm", onClick: function () {
+        } },
+        React__default['default'].createElement("img", { height: "26px", src: "/images/wallet.png", style: { height: "26px" } }),
+        " \u00A0",
+        accountEllipsis)) : (React__default['default'].createElement(Button, { size: "sm", onClick: function () {
             onPresentConnectModal();
         } }, "Connect"))));
 };

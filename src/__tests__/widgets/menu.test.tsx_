@@ -46,13 +46,14 @@ it("renders correctly", () => {
   expect(asFragment()).toMatchInlineSnapshot(`
     <DocumentFragment>
       <div
-        class="sc-bYEvPH cNGsRF"
+        class="sc-bYEvPH hmuPEi"
       >
         <nav
-          class="sc-kLgntA jnPcoJ"
+          class="sc-kLgntA kdceaU"
         >
           <div
             class="sc-gsTCUz dwpdGQ"
+            style="padding-left: 60px;"
           >
             <button
               aria-label="Toggle menu"
@@ -60,7 +61,7 @@ it("renders correctly", () => {
               type="button"
             >
               <svg
-                class="sc-dlfnbm esrYrS"
+                class="sc-dlfnbm emjBCr"
                 color="textSubtle"
                 viewBox="0 0 24 24"
                 width="24px"
@@ -112,19 +113,25 @@ it("renders correctly", () => {
                 class="sc-hKgILt gocdBS"
                 type="button"
               >
-                0xbd...c980
+                <img
+                  height="26px"
+                  src="/images/wallet.png"
+                  style="height: 26px;"
+                />
+                  0xbd...c980
               </button>
             </div>
           </div>
         </nav>
         <div
-          class="sc-iktFzd dABFdo"
+          class="sc-jJEJSO hYddnZ"
         >
           <div
-            class="sc-hHftDr kbPZub"
+            class="sc-dmlrTW cVSKEw"
           >
             <div
-              class="sc-jrAGrp gTTHkW"
+              class="sc-gsTCUz dwpdGQ"
+              style="padding-left: 60px;"
             >
               <div
                 class="sc-iBPRYJ jtdgIk"

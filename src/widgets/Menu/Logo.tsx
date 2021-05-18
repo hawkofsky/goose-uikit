@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useMatchBreakpoints } from "../../hooks";
 import { LogoIcon } from "../../components/Svg";
 import Flex from "../../components/Flex/Flex";
 import { HamburgerIcon, HamburgerCloseIcon, LogoIcon as LogoWithText } from "./icons";
@@ -32,6 +33,8 @@ const StyledLink = styled(Link)`
 `;
 
 const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
+  const { isXl } = useMatchBreakpoints();
+  const isMobile = isXl === false;
   const isAbsoluteUrl = href.startsWith("http");
   const innerLogo = (
     <>
@@ -41,14 +44,16 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
   );
 
   return (
-    <Flex>
-      <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
-        {isPushed ? (
-          <HamburgerCloseIcon width="24px" color="textSubtle" />
-        ) : (
-          <HamburgerIcon width="24px" color="textSubtle" />
-        )}
-      </MenuButton>
+    <Flex style={{ paddingLeft: "60px" }}>
+      {isMobile && (
+        <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
+          {isPushed ? (
+            <HamburgerCloseIcon width="24px" color="textSubtle" />
+          ) : (
+            <HamburgerIcon width="24px" color="textSubtle" />
+          )}
+        </MenuButton>
+      )}
       {isAbsoluteUrl ? (
         <StyledLink as="a" href={href} aria-label="Pancake home page">
           {innerLogo}

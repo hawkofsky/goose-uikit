@@ -15,6 +15,8 @@ interface Props extends PanelProps, PushedProps {
 const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
 
 const Container = styled.div`
+  padding-top: 100px;
+  padding-left: 120px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
