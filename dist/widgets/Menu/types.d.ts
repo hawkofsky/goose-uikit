@@ -1,7 +1,9 @@
 import { Login } from "../WalletModal/types";
+import { FooterLinkType } from "../../components/Footer/types";
 export interface LangType {
     code: string;
     language: string;
+    locale: string;
 }
 export interface Profile {
     username?: string;
@@ -27,7 +29,7 @@ export interface MenuEntry {
     label: string;
     icon: string;
     items?: MenuSubEntry[];
-    href?: string;
+    href: string;
     calloutClass?: string;
     initialOpenState?: boolean;
 }
@@ -36,9 +38,11 @@ export interface PanelProps {
     toggleTheme: (isDark: boolean) => void;
     cakePriceUsd?: number;
     currentLang: string;
+    buyCakeLabel: string;
     langs: LangType[];
     setLang: (lang: LangType) => void;
     links: Array<MenuEntry>;
+    footerLinks: Array<FooterLinkType>;
     priceLink: string;
 }
 export interface NavProps extends PanelProps {

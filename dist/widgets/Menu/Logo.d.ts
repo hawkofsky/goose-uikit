@@ -1,8 +1,8 @@
 import React from "react";
 interface Props {
-    isPushed: boolean;
+    isPushed?: boolean;
     isDark: boolean;
-    togglePush: () => void;
+    togglePush?: () => void;
     href: string;
 }
 declare const Logo: React.FC<Props>;

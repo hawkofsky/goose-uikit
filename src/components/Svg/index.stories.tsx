@@ -1,7 +1,9 @@
 import React from "react";
-import Flex from "../Flex/Flex";
+import Box from "../Box/Box";
+import Flex from "../Box/Flex";
 import Text from "../Text/Text";
 import Svg from "./Svg";
+import AnimatedIconComponent from "./AnimatedIconComponent";
 
 export default {
   title: "Components/Svg Icons",
@@ -36,18 +38,52 @@ const components = context.keys().reduce((accum, path) => {
 
 export const Icons: React.FC = () => {
   return (
-    <Flex justifyContent="start" alignItems="center" flexWrap="wrap" style={{ maxWidth: "800px" }}>
+    <Flex justifyContent="start" alignItems="center" flexWrap="wrap">
       {Object.keys(components).map((file) => {
         const Icon = components[file].default;
         return (
-          <Flex key={file} flexDirection="column" alignItems="center" py="4px" px="8px" mb="32px">
-            <Icon size="32px" />
-            <Text color="textSubtle" fontSize="12px">
-              {file}
-            </Text>
+          <Flex
+            key={file}
+            flexDirection="column"
+            alignItems="center"
+            width="128px"
+            height="96px"
+            style={{ border: "1px solid #eee" }}
+            justifyContent="center"
+            py="8px"
+            m="4px"
+          >
+            <Flex alignItems="center" justifyContent="center" style={{ flex: 1 }} height="100%">
+              <Icon width="48px" />
+              <Icon width="24px" color="secondary" ml="4px" />
+            </Flex>
+            <Box py="4px">
+              <Text color="textSubtle" fontSize="14px">
+                {file}
+              </Text>
+            </Box>
           </Flex>
         );
       })}
     </Flex>
   );
+};
+
+const AnimatedIconComponentTemplate: React.FC = (args) => {
+  return (
+    <Box background="white" height="48px" width="48px">
+      <AnimatedIconComponent
+        activeBackgroundColor="backgroundAlt"
+        iconName="CheckmarkCircle"
+        height="48px"
+        width="48px"
+        {...args}
+      />
+    </Box>
+  );
+};
+
+export const AnimatedIconComponentStory = AnimatedIconComponentTemplate.bind({});
+AnimatedIconComponentStory.args = {
+  isActive: false,
 };

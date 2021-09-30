@@ -8,6 +8,7 @@ import Menu from "./Menu";
 import { MenuEntry } from "./MenuEntry";
 import { LangType } from "./types";
 import { links } from "./config";
+import { footerLinks } from "../../components/Footer/config";
 
 export default {
   title: "Widgets/Menu",
@@ -31,6 +32,7 @@ export const Connected: React.FC = () => {
         currentLang="EN"
         cakePriceUsd={0.23158668932877668}
         links={links}
+        footerLinks={footerLinks}
         profile={null}
       >
         <div>
@@ -69,6 +71,7 @@ export const NotConnected: React.FC = () => {
         setLang={noop}
         currentLang="EN"
         links={links}
+        footerLinks={footerLinks}
       >
         <div>
           <h1>Page body</h1>
@@ -101,6 +104,7 @@ export const WithNoProfile: React.FC = () => {
         currentLang="EN"
         cakePriceUsd={0.23158668932877668}
         links={links}
+        footerLinks={footerLinks}
         profile={{
           profileLink: "/profile",
           noProfileLink: "/no-profile",
@@ -143,6 +147,7 @@ export const WithProfile: React.FC = () => {
         currentLang="EN"
         cakePriceUsd={0.23158668932877668}
         links={links}
+        footerLinks={footerLinks}
         profile={{
           username: "pancakeswap",
           image: "https://pancakeswap.finance/images/nfts/blueberries-preview.png",
