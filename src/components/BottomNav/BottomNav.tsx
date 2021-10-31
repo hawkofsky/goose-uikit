@@ -11,14 +11,14 @@ const BottomNav: React.FC<BottomNavProps> = ({ items = [], activeItem = "", acti
       {items.map(({ label, items: menuItems, href, icon, showOnMobile = true, showItemsOnMobile = true }) => {
         return (
           showOnMobile && (
-            <DropdownMenu
-              key={label}
-              items={menuItems}
-              isBottomNav
-              activeItem={activeSubItem}
-              showItemsOnMobile={showItemsOnMobile}
-            >
-              <Box>
+            // <DropdownMenu
+            //   key={label}
+            //   items={menuItems}
+            //   isBottomNav
+            //   activeItem={activeSubItem}
+            //   showItemsOnMobile={showItemsOnMobile}
+            // >
+            //   <Box>
                 <BottomNavItem
                   href={href}
                   isActive={href === activeItem}
@@ -26,8 +26,8 @@ const BottomNav: React.FC<BottomNavProps> = ({ items = [], activeItem = "", acti
                   iconName={icon}
                   showItemsOnMobile={showItemsOnMobile}
                 />
-              </Box>
-            </DropdownMenu>
+            //   </Box>
+            // </DropdownMenu>
           )
         );
       })}

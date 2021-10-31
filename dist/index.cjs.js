@@ -2882,11 +2882,11 @@ var StyledBottomNavText = styled__default['default'](Text)(templateObject_2$b ||
 var templateObject_1$B, templateObject_2$b;
 
 var BottomNavItem = function (_a) {
-    var label = _a.label, iconName = _a.iconName, href = _a.href, _b = _a.showItemsOnMobile, showItemsOnMobile = _b === void 0 ? false : _b, _c = _a.isActive, isActive = _c === void 0 ? false : _c, props = __rest(_a, ["label", "iconName", "href", "showItemsOnMobile", "isActive"]);
+    var label = _a.label, iconName = _a.iconName, href = _a.href; _a.showItemsOnMobile; var _c = _a.isActive, isActive = _c === void 0 ? false : _c, props = __rest(_a, ["label", "iconName", "href", "showItemsOnMobile", "isActive"]);
     var bottomNavItemContent = (React__default['default'].createElement(Flex$1, { flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100%" },
         iconName && (React__default['default'].createElement(AnimatedIconComponent, { iconName: iconName, height: "22px", width: "21px", color: isActive ? "secondary" : "textSubtle", isActive: isActive, activeBackgroundColor: "backgroundAlt" })),
         React__default['default'].createElement(StyledBottomNavText, { color: isActive ? "text" : "textSubtle", fontWeight: isActive ? "600" : "400", fontSize: "10px" }, label)));
-    return showItemsOnMobile ? (React__default['default'].createElement(StyledBottomNavItem, __assign({ type: "button" }, props), bottomNavItemContent)) : (React__default['default'].createElement(StyledBottomNavItem, __assign({ as: reactRouterDom.Link, to: href }, props), bottomNavItemContent));
+    return (React__default['default'].createElement(StyledBottomNavItem, __assign({ as: reactRouterDom.Link, to: href }, props), bottomNavItemContent));
 };
 
 var StyledBottomNavItem$1 = styled__default['default'](Flex$1)(templateObject_1$C || (templateObject_1$C = __makeTemplateObject(["\n  position: fixed;\n  bottom: 0px;\n  width: 100%;\n  padding: 5px 8px;\n  padding-bottom: env(safe-area-inset-bottom);\n  background: ", ";\n  border-top: 1px solid ", ";\n"], ["\n  position: fixed;\n  bottom: 0px;\n  width: 100%;\n  padding: 5px 8px;\n  padding-bottom: env(safe-area-inset-bottom);\n  background: ", ";\n  border-top: 1px solid ", ";\n"])), function (_a) {
@@ -2897,6 +2897,26 @@ var StyledBottomNavItem$1 = styled__default['default'](Flex$1)(templateObject_1$
     return theme.colors.cardBorder;
 });
 var templateObject_1$C;
+
+var BottomNav = function (_a) {
+    var _b = _a.items, items = _b === void 0 ? [] : _b, _c = _a.activeItem, activeItem = _c === void 0 ? "" : _c; _a.activeSubItem; var props = __rest(_a, ["items", "activeItem", "activeSubItem"]);
+    return (React__default['default'].createElement(StyledBottomNavItem$1, __assign({ justifyContent: "space-around" }, props), items.map(function (_a) {
+        var label = _a.label; _a.items; var href = _a.href, icon = _a.icon, _b = _a.showOnMobile, showOnMobile = _b === void 0 ? true : _b, _c = _a.showItemsOnMobile, showItemsOnMobile = _c === void 0 ? true : _c;
+        return (showOnMobile && (
+        // <DropdownMenu
+        //   key={label}
+        //   items={menuItems}
+        //   isBottomNav
+        //   activeItem={activeSubItem}
+        //   showItemsOnMobile={showItemsOnMobile}
+        // >
+        //   <Box>
+        React__default['default'].createElement(BottomNavItem, { href: href, isActive: href === activeItem, label: label, iconName: icon, showItemsOnMobile: showItemsOnMobile })
+        //   </Box>
+        // </DropdownMenu>
+        ));
+    })));
+};
 
 var isTouchDevice = function () {
     return "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
@@ -3084,16 +3104,6 @@ var DropdownMenu = function (_a) {
                         React__default['default'].createElement(IconComponent, { iconName: "Logout" })))),
                 type === DropdownMenuItemType.DIVIDER && React__default['default'].createElement(DropdownMenuDivider, null)));
         })))));
-};
-
-var BottomNav = function (_a) {
-    var _b = _a.items, items = _b === void 0 ? [] : _b, _c = _a.activeItem, activeItem = _c === void 0 ? "" : _c, _d = _a.activeSubItem, activeSubItem = _d === void 0 ? "" : _d, props = __rest(_a, ["items", "activeItem", "activeSubItem"]);
-    return (React__default['default'].createElement(StyledBottomNavItem$1, __assign({ justifyContent: "space-around" }, props), items.map(function (_a) {
-        var label = _a.label, menuItems = _a.items, href = _a.href, icon = _a.icon, _b = _a.showOnMobile, showOnMobile = _b === void 0 ? true : _b, _c = _a.showItemsOnMobile, showItemsOnMobile = _c === void 0 ? true : _c;
-        return (showOnMobile && (React__default['default'].createElement(DropdownMenu, { key: label, items: menuItems, isBottomNav: true, activeItem: activeSubItem, showItemsOnMobile: showItemsOnMobile },
-            React__default['default'].createElement(Box, null,
-                React__default['default'].createElement(BottomNavItem, { href: href, isActive: href === activeItem, label: label, iconName: icon, showItemsOnMobile: showItemsOnMobile })))));
-    })));
 };
 
 var StyledMenuItemContainer = styled__default['default'].div(templateObject_1$E || (templateObject_1$E = __makeTemplateObject(["\n  position: relative;\n\n  ", ";\n"], ["\n  position: relative;\n\n  ",
