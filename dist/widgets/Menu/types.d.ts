@@ -28,6 +28,7 @@ export interface MenuSubEntry {
 export interface MenuEntry {
     label: string;
     icon: string;
+    dropdown?: boolean;
     items?: MenuSubEntry[];
     href: string;
     calloutClass?: string;

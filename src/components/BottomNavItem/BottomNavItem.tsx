@@ -8,6 +8,7 @@ import { BottomNavItemProps } from "./types";
 const BottomNavItem: React.FC<BottomNavItemProps> = ({
   label,
   iconName,
+  dropdown,
   href,
   showItemsOnMobile = false,
   isActive = false,
@@ -35,7 +36,11 @@ const BottomNavItem: React.FC<BottomNavItemProps> = ({
     </Flex>
   );
 
-  return (
+  return dropdown ? (
+    <StyledBottomNavItem type="button" {...props}>
+      {bottomNavItemContent}
+    </StyledBottomNavItem>
+  ) : (
     <StyledBottomNavItem as={Link} to={href} {...props}>
       {bottomNavItemContent}
     </StyledBottomNavItem>
